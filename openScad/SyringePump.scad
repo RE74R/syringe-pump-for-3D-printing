@@ -1,3 +1,6 @@
+// It is licensed under the Creative Commons - GNU GPL license.
+// © 2022 by Ricardo Espinosa
+
 metrica=4;
 
 /****  Pieza A *****/
@@ -30,38 +33,6 @@ rJ=diametroJeringuilla/2;
 rJ2=26;//tope de la jeringa
 aJ=zA-13; //alto Jeringa
 rJ3=15.5;
-
-
-
-//--PIEZA D
-
-difference(){
-translate([xD,0,7.5])
-minkowski(){
-cube ([xA*4-ajuste, yA-ajuste, zA], center=true);  
-sphere(2);
-}
-//tuerca
-translate([xD,0,tuercaY*1.3])
-cube([tuercaX, tuercaZ, tuercaY*4], center=true);
-
-//husillos
-rotate([0,90,0])
-cylinder(h=longHusillo, r=radioHusillo, center=true);
-rotate([0,90,0])
-translate([0,-distanciaGuias,0])
-cylinder(h=longHusillo, r=radioGuias, center=true);
-rotate([0,90,0])
-translate([0,distanciaGuias,0])
-cylinder(h=longHusillo, r=radioGuias, center=true);
-
-// porta jerniga
-translate([xD+8,0,aJ])
-rotate([0,90,0])
-cylinder (h=3,r=15.5, center=true);
-translate([xD+15,0,26])
-cube ([13, 3, 13], center=true);
-}
 
 //--PIEZA A
 
@@ -151,4 +122,33 @@ color("green"){
         rotate([0,90,0])
         cylinder (h=3,r=rJ2, center=true);
     }
+}
+//--PIEZA D
+
+difference(){
+translate([xD,0,7.5])
+minkowski(){
+cube ([xA*4-ajuste, yA-ajuste, zA], center=true);  
+sphere(2);
+}
+//tuerca
+translate([xD,0,tuercaY*1.3])
+cube([tuercaX, tuercaZ, tuercaY*4], center=true);
+
+//husillos
+rotate([0,90,0])
+cylinder(h=longHusillo, r=radioHusillo, center=true);
+rotate([0,90,0])
+translate([0,-distanciaGuias,0])
+cylinder(h=longHusillo, r=radioGuias, center=true);
+rotate([0,90,0])
+translate([0,distanciaGuias,0])
+cylinder(h=longHusillo, r=radioGuias, center=true);
+
+// porta jerniga
+translate([xD+8,0,aJ])
+rotate([0,90,0])
+cylinder (h=3,r=15.5, center=true);
+translate([xD+15,0,26])
+cube ([13, 3, 13], center=true);
 }
